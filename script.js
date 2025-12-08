@@ -25,4 +25,23 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* */
+/*btn scroll */
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function (e) {
+  const s1coords = section1.getBoundingClientRect();
+  //   console.log(s1coords);
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+
+/*page navigation */
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  //   console.log(e.target);
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    // console.log(id);
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+});
